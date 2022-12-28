@@ -10,12 +10,25 @@ namespace SnakeLadderProblem
     {
         public static void SnakeAndLadder() 
         {
-            int startPosition = 0;
-            Console.WriteLine("Snake and Ladder game played with single player at start position : " + startPosition);
-
+            int position = 0;
             Random random = new Random();
             int die = random.Next(1, 7);
-            Console.WriteLine("The Player rolls the die to get a number between 1 to 6 is : " + die);
+            int prop = random.Next(3);
+            const int NoPlay = 0;
+            const int ladder = 1;
+            const int snake = 2;
+            switch (prop)
+            {
+                case NoPlay:
+                    break;
+                case ladder:
+                    position = die;
+                    break;
+                case snake:
+                    position = position - die;
+                    break;
+            }
+            Console.WriteLine("die: " + die + " option : " + prop + " position : " + position);
         }
     }
 }
