@@ -18,11 +18,16 @@ namespace SnakeLadderProblem
             const int ladder = 1;
             const int snake = 2;
             int temp = 0;
+            int flag1 = 0;
+            int flag2 = 0;
+            int resultflag = 0;
             while (currentPosition < endPosition)
             {
+
                 Random random = new Random();
                 int die = random.Next(1, 7);
-                int prop = random.Next(3);
+                flag1++;
+                int prop = random.Next(3); 
                 switch (prop)
                 {
                     case NoPlay:
@@ -61,6 +66,7 @@ namespace SnakeLadderProblem
                     {
                         Random random1 = new Random();
                         int die1 = random.Next(1, 7);
+                        flag2++;
                         int prop1 = random.Next(3);
                         switch (prop1)
                         {
@@ -84,12 +90,18 @@ namespace SnakeLadderProblem
                         temp += (position);
                         if (temp == endPosition)
                         {
-  
                             Console.WriteLine("die : " + die1 + " option : " + prop1 + " position : " + temp);
                         }
                     }
+
                 }
             }
+            Console.WriteLine("Dice rolled to reach win : " + flag1);
+            Console.WriteLine("Dice rolled to reach exact win : " + flag2);
+            resultflag = flag1 + flag2;
+            Console.WriteLine("The number of times dice rolled : " + resultflag);
         }
+
+
     }
 }
