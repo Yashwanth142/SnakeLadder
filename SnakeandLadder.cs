@@ -54,6 +54,41 @@ namespace SnakeLadderProblem
                     Console.WriteLine("die : " + die + " option : " + prop + " position : " + currentPosition);
                     temp = currentPosition;
                 }
+
+                if (endPosition < currentPosition)
+                {
+                    while (temp < endPosition)
+                    {
+                        Random random1 = new Random();
+                        int die1 = random.Next(1, 7);
+                        int prop1 = random.Next(3);
+                        switch (prop1)
+                        {
+                            case NoPlay:
+                                position = 0;
+                                break;
+                            case ladder:
+                                if (temp + die1 == endPosition)
+                                {
+                                    position = die1;
+                                }
+                                else
+                                {
+                                    position = 0;
+                                }
+                                break;
+                            case snake:
+                                position = 0;
+                                break;
+                        }
+                        temp += (position);
+                        if (temp == endPosition)
+                        {
+  
+                            Console.WriteLine("die : " + die1 + " option : " + prop1 + " position : " + temp);
+                        }
+                    }
+                }
             }
         }
     }
